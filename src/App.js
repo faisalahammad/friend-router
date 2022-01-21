@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import Friend from './components/Friend/Friend';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home/Home';
+import NoMatch from './components/NoMatch/NoMatch';
 // import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const [friends, setFriends] = useState([]);
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => setFriends(data))
-  }, [])
   return (
-    <div className="App">
-      {
-        friends.map(friend => <Friend friend={friend} key={friend.id}></Friend>)
-      }
-    </div>
+    <Routes>
+      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<NoMatch />} />
+    </Routes>
   );
 }
 
