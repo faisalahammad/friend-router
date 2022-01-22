@@ -6,7 +6,7 @@ const Header = () => {
       <nav>
         <a href="/">Home</a>
         <a href="/">Users</a>
-        <a href="/404">404 Page</a>
+        <a href="/not-found">404 Page</a>
       </nav>
     </header>
   );
